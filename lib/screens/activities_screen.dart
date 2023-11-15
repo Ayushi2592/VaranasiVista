@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import '../models/activity_model.dart';
 import 'activity_details_screen.dart';
-import '../widgets/custom_header.dart';
 
 class ActivityScreen extends StatefulWidget {
   static const String id = 'activity_screen';
@@ -32,7 +31,10 @@ class ActivitiesScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 50),
-          const CustomHeader(title: 'Activities'),
+          Text(
+            'Activities', // Use Text widget for the title
+            style: Theme.of(context).textTheme.headline6,
+          ),
           _ActivitiesMasonryGrid(
             width: width,
             activities: activities,
@@ -61,7 +63,7 @@ class _ActivitiesMasonryGrid extends StatelessWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.all(10.0),
-      itemCount: 9,
+      itemCount: activities.length, // Use the actual number of activities
       crossAxisCount: 2,
       mainAxisSpacing: 10,
       crossAxisSpacing: 10,
@@ -111,7 +113,7 @@ class _ActivitiesMasonryGrid extends StatelessWidget {
             maxLines: 3,
             style: Theme.of(context)
                 .textTheme
-                .bodySmall!
+                .bodyText2!
                 .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
           ),
         ],

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import '../widgets/clipped_container.dart';
-
 import '../models/activity_model.dart';
 
 class ActivityDetailsScreen extends StatelessWidget {
@@ -35,10 +33,12 @@ class _ActivityImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const ClippedContainer(height: 425),
-        Hero(
-          tag: '${activity.id}_${activity.title}',
-          child: ClippedContainer(imageUrl: activity.imageUrl),
+        Container(
+          height: 425, // Specify the height property
+          child: Hero(
+            tag: '${activity.id}_${activity.title}',
+            child: Image.network(activity.imageUrl), // Use Image.network or Image.asset as per your requirement
+          ),
         ),
       ],
     );

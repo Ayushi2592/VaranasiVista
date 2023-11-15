@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import '../widgets/custom_header.dart';
-import 'cart_page.dart'; // Import the CartPage widget
+
 class HotelsScreen extends StatefulWidget {
   static const String id = 'hotels_screen';
   @override
